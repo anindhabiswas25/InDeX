@@ -1,5 +1,7 @@
 <div align="center">
-<img width="2875" height="1573" alt="Screenshot from 2026-04-20 02-34-15" src="https://github.com/user-attachments/assets/58e3bdf1-312e-471b-8f89-17b5c6621ac2" />
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/58e3bdf1-312e-471b-8f89-17b5c6621ac2" width="800"/>
+</p>
 
 
 <img src="https://img.shields.io/badge/Initia-L1%20%2B%20MiniWasm%20Rollup-6366f1?style=for-the-badge" />
