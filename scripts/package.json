@@ -1,0 +1,23 @@
+{
+  "name": "initx-scripts",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build-contracts": "ts-node --esm src/build.ts",
+    "deploy": "ts-node --esm src/deploy.ts",
+    "deploy:local": "NETWORK=local ts-node --esm src/deploy.ts"
+  },
+  "dependencies": {
+    "@cosmjs/cosmwasm-stargate": "^0.32.4",
+    "@cosmjs/proto-signing": "^0.32.4",
+    "@cosmjs/stargate": "^0.32.4",
+    "@cosmjs/crypto": "^0.32.4",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.0",
+    "@types/node": "^22.0.0"
+  }
+}

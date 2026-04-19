@@ -1,0 +1,69 @@
+{
+  "local_rollup": {
+    "chain_id": "initx-1",
+    "rpc": "http://localhost:26657",
+    "lcd": "http://localhost:1317",
+    "grpc": "localhost:9090",
+    "denom": "umin",
+    "contracts": {
+      "initx_token": {
+        "code_id": 17,
+        "address": "init1e4fg5aalwexw58mgd34ud6mljt0nag5emdlk7uy89e79m6maur9sycmgqv"
+      },
+      "staking": {
+        "code_id": 18,
+        "address": "init1janyt3jws4tf2ndv0h0qsw629fe68tlrke8zqthrhqepgaqagdwqx2kkmv"
+      },
+      "lp_pool": {
+        "code_id": 19,
+        "address": "init1sdzaas0068n42xk8ndm6959gpu6n09tajmeuq7vak8t9qt5jrp6sspcp33"
+      },
+      "lending": {
+        "code_id": 20,
+        "address": "init1aekqcs6j53zg0u3sqlxtxk487kc3zsjm47l22ehyfeea935p7a3qv8uzql"
+      },
+      "governance": {
+        "code_id": 21,
+        "address": "init12nq2t8m9pcs60z387khxprp9y2awxkkukudcfftt469cqeu2rswsz75st9"
+      }
+    },
+    "accounts": {
+      "validator": "init19nuvczfkhtk2gmj79pfpxjkdpghelkjx95qv2c",
+      "gas_station": "init1dsskdu82c5c8krnua3pnau4fmhafvjrhcsk5lu"
+    },
+    "note": "v8 deployment - CW20 Send bug fixed, all E2E tests passing"
+  },
+  "shared_testnet": {
+    "chain_id": "wasm-1",
+    "rpc": "https://rpc-wasm-1.anvil.asia-southeast.initia.xyz",
+    "lcd": "https://rest-wasm-1.anvil.asia-southeast.initia.xyz",
+    "denom": "l2/8b3e1fc559b327a35335e3f26ff657eaee5ff8486ccd3c1bc59007a93cf23156",
+    "explorer": "https://scan.testnet.initia.xyz/wasm-1",
+    "deployer": "init1j55atx86l34g76erww2m0h6huh8zks0pkm4qak",
+    "keeper": "init1j55atx86l34g76erww2m0h6huh8zks0pkm4qak",
+    "contracts": {
+      "initx_token": {
+        "code_id": 115,
+        "address": "init1u55ryw9lsgaxyptqqrnzgk8n5gczu7d3dgpkd0h8l24qmss00knsctdapz"
+      },
+      "staking": {
+        "code_id": 116,
+        "address": "init1uezrmsm4rcky7w3xmwt3u2980m552x7r9ekynnf9vs35sw6jehgsj28gps"
+      },
+      "lp_pool": {
+        "code_id": 117,
+        "address": "init1glz03hqk5h5jypah4cph0thxpvpchczywv3lfn8z6askw43pjnrqykkfrz"
+      },
+      "lending": {
+        "code_id": 118,
+        "address": "init1dykln6365de5dd5r77kav4fd5egdzd5qvpcfq5069hszlfpgttvsv7ccdn"
+      },
+      "governance": {
+        "code_id": 119,
+        "address": "init1g3xg3jlhl3zv9skr3249j9djc7rje6nv5rjru6647xjf0za72hkqxqhe9j"
+      }
+    },
+    "deployed_at": "2026-04-18T09:49:14.256Z",
+    "note": "v3 deployment - Real yield model, all contracts admin = keeper wallet"
+  }
+}
