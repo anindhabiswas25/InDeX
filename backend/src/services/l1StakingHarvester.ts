@@ -55,31 +55,46 @@ export async function getL1DelegationInfo(): Promise<{
   const address = await getKeeperL1Address();
 
   try {
-    // Delegations — returns [Delegation[], Pagination]
+    // Delegations — returns [DelegationResponse[], Pagination]
     const [delegationList] = await client.mstaking.delegations(address);
     let delegated = 0n;
-    for (const d of delegationList) {
-      // Each Delegation has a .shares property (array of DecCoin in mstaking)
-      const shares = (d as any).shares;
-      if (shares) {
-        for (const s of (Array.isArray(shares) ? shares : [shares])) {
-          if ((s.denom ?? s.denom) === config.l1Denom) {
-            delegated += BigInt(Math.floor(parseFloat(s.amount)));
-          }
+    for (const raw of delegationList) {
+      // initia.js returns a class `fs` object — double-parse to get plain object
+      const d: any = JSON.parse(JSON.parse(JSON.stringify(raw)));
+      // Use `balance` array (actual token amounts, not shares)
+      // d.balance may still be a JSON string — parse defensively
+      let rawBalance = d.balance;
+      if (typeof rawBalance === "string") rawBalance = JSON.parse(rawBalance);
+      const balanceArr: Array<{ denom: string; amount: string }> =
+        Array.isArray(rawBalance) ? rawBalance : [];
+      for (const b of balanceArr) {
+        if (b.denom === config.l1Denom) {
+          delegated += BigInt(Math.floor(parseFloat(b.amount)));
         }
       }
     }
 
-    // Pending rewards — total is array of {denom, amount} or []
+    // Pending rewards — total is array of {denom, coins} where coins is a JSON string
     const rewardsRes = await client.distribution.rewards(address);
     let pendingRewards = 0n;
-    const totalArr: Array<{ denom: string; amount: string }> =
+    const totalArr: Array<{ denom: string; coins?: string; amount?: string }> =
       Array.isArray((rewardsRes as any).total)
         ? (rewardsRes as any).total
         : [];
     for (const coin of totalArr) {
       if (coin.denom === config.l1Denom) {
-        pendingRewards = BigInt(Math.floor(parseFloat(coin.amount)));
+        // `coins` is a JSON string like "[{\"amount\":\"59.03\",\"denom\":\"uinit\"}]"
+        if (coin.coins) {
+          const parsed: Array<{ denom: string; amount: string }> =
+            typeof coin.coins === "string" ? JSON.parse(coin.coins) : coin.coins;
+          for (const c of parsed) {
+            if (c.denom === config.l1Denom) {
+              pendingRewards = BigInt(Math.floor(parseFloat(c.amount)));
+            }
+          }
+        } else if (coin.amount) {
+          pendingRewards = BigInt(Math.floor(parseFloat(coin.amount)));
+        }
         break;
       }
     }
@@ -113,7 +128,7 @@ export async function delegateOnL1(uinitAmount: bigint): Promise<string | null> 
       delegatorAddress,
       config.l1ValidatorAddress,
       // mstaking expects array of Coin
-      new Coin(config.l1Denom, uinitAmount.toString()) as any
+      `${uinitAmount}${config.l1Denom}` as any
     );
 
     const tx = await wallet.createAndSignTx({ msgs: [msg] });

@@ -89,14 +89,16 @@ export async function calculateApy(days: number): Promise<number> {
       if (elapsed < 0.01) return 0;
 
       const rateChange = currentRate / firstSnapshot.exchangeRate;
+      // Need at least 1 hour of history to produce a meaningful APY
+      if (elapsed < 1 / 24) return 0;
       const annualized = Math.pow(rateChange, 365 / elapsed) - 1;
-      return annualized * 100;
+      return Math.min(annualized * 100, 9999);
     }
 
     const currentRate = await getExchangeRate();
     const rateChange = currentRate / oldSnapshot.exchangeRate;
     const annualized = Math.pow(rateChange, 365 / days) - 1;
-    return annualized * 100;
+    return Math.min(annualized * 100, 9999);
   } catch {
     return 0;
   }
