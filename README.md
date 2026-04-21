@@ -10,13 +10,13 @@
 <img src="https://img.shields.io/badge/Tests-58%20Passing-brightgreen?style=for-the-badge" />
 <img src="https://img.shields.io/badge/Status-Live%20on%20Testnet-blue?style=for-the-badge" />
 
-# INITx Protocol
+# InDeX
 
-### The First Full-Stack Liquid Staking Protocol on Initia
+### Unified DeFi on Initia — Stake, Lend, Swap, Govern. All in One Protocol.
 
 **Stake INIT → Receive INITx → Earn Real L1 Staking Yield — While Staying Liquid**
 
-[Live App](https://scan.testnet.initia.xyz/wasm-1) · [Explorer](https://scan.testnet.initia.xyz/wasm-1) · [Contracts](#-deployed-contracts) · [Architecture](#-architecture) · [Quick Start](#-quick-start)
+[Live App](https://index-3mc4.onrender.com) · [Explorer](https://scan.initia.xyz/wasm-1) · [GitHub](https://github.com/anindhabiswas25/InDeX) · [Contracts](#-deployed-contracts) · [Architecture](#-architecture) · [Quick Start](#-quick-start)
 
 </div>
 
@@ -44,7 +44,7 @@
 
 ## 📌 Overview
 
-INITx Protocol is a **production-grade liquid staking system** purpose-built for Initia's modular L1 + MiniWasm rollup architecture. It solves the fundamental DeFi dilemma: *you should never have to choose between earning staking yield and using your capital in DeFi*.
+InDeX is a **production-grade unified DeFi protocol** purpose-built for Initia's modular L1 + MiniWasm rollup architecture. It solves the fundamental DeFi dilemma: *you should never have to choose between earning staking yield and using your capital in DeFi*.
 
 Users deposit native INIT tokens and receive **INITx** — a CW20 yield-bearing derivative token. The exchange rate between INITx and INIT grows continuously as the keeper bot:
 
@@ -57,11 +57,11 @@ Beyond staking, INITx can be **swapped**, used to **provide liquidity**, **borro
 
 ---
 
-## 🧩 Why Initia Needs INITx
+## 🧩 Why Initia Needs InDeX
 
 ### The Problem with Staking on Modular Chains
 
-Initia's architecture is unique: applications live on **specialized rollups** (MiniEVM, MiniWasm, MiniMove) while security and consensus are provided by the **Initia L1**. This creates a liquidity fragmentation problem:
+Initia's architecture is unique: applications live on **specialized rollups** (MiniEVM, MiniWasm, MiniMove) while security and consensus are provided by the **Initia L1**. This creates a liquidity fragmentation problem — users must choose between earning staking yield on L1 or participating in rollup DeFi. They cannot do both.
 
 ```
 Initia L1 (initiation-2)
@@ -79,7 +79,7 @@ MiniWasm Rollup (wasm-1)
 - ✗ Keep INIT staked on L1 → earn yield but lose DeFi composability
 - ✗ Unstake to wasm-1 → participate in DeFi but lose all staking yield
 
-### INITx Solves This With a Cross-Layer Yield Bridge
+### InDeX Solves This With a Cross-Layer Yield Bridge
 
 ```
 Initia L1 (initiation-2)          MiniWasm Rollup (wasm-1)
@@ -91,7 +91,7 @@ Initia L1 (initiation-2)          MiniWasm Rollup (wasm-1)
 └─────────────────────┘  claim   └──────────────────────────┘
 ```
 
-INITx enables:
+InDeX enables:
 - **L1 staking yield** flowing into a rollup DeFi ecosystem — permissionlessly
 - **Liquid capital** — users hold INITx, which can be traded or used as collateral at any time
 - **Composable yield** — the yield-bearing token plugs natively into any CosmWasm DeFi primitive
@@ -99,7 +99,7 @@ INITx enables:
 
 ### Why This Matters for Initia's Ecosystem
 
-| Without INITx | With INITx |
+| Without InDeX | With InDeX |
 |---|---|
 | INIT stakers have no DeFi access | INITx holders access full DeFi stack |
 | Capital efficiency ~50% (stake or DeFi) | Capital efficiency ~100% (stake AND DeFi) |
@@ -740,7 +740,7 @@ The backend implements **exponential backoff with jitter** for all RPC calls:
 
 ## 📡 API Reference
 
-Base URL: `http://localhost:3002`
+Base URL: `https://index-3mc4.onrender.com`
 
 ### Core Endpoints
 
@@ -819,8 +819,8 @@ Built with **Next.js 14 App Router**, **TypeScript**, and **Tailwind CSS**. Wall
 ### 1. Clone & Install
 
 ```bash
-git clone https://github.com/your-org/initx-protocol
-cd initx-protocol
+git clone https://github.com/anindhabiswas25/InDeX
+cd InDeX
 ```
 
 ### 2. Build Smart Contracts
@@ -1010,6 +1010,8 @@ MIT License — see [LICENSE](LICENSE) for details.
 
 Built with ❤️ for the Initia ecosystem
 
-**INITx — Where L1 Security Meets L2 DeFi**
+**INITx — Where L1 Security Meets L2 DeFi | Built for the Initia Ecosystem**
+
+[Live App](https://index-3mc4.onrender.com) · [GitHub](https://github.com/anindhabiswas25/InDeX) · [Demo Video](https://youtu.be/h4AxcTZKT34?si=aGe6ZX41UtZrYCI2)
 
 </div>
