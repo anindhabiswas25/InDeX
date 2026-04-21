@@ -1,12 +1,12 @@
 {
-  "project_name": "INITx Protocol",
-  "repo_url": "https://github.com/TODO/initx-protocol",
-  "commit_sha": "0000000000000000000000000000000000000000",
-  "rollup_chain_id": "initx-1",
-  "deployed_address": "init1zwv6feuzhy6a9wekh96cd57lsarmqlwxdypdsplw6zhfncqw6ftqjykcxd",
+  "project_name": "InDeX",
+  "repo_url": "https://github.com/anindhabiswas25/InDeX",
+  "commit_sha": "0c767baed591de59599eea7e0dab8eae0015a979",
+  "rollup_chain_id": "wasm-1",
+  "deployed_address": "init1uezrmsm4rcky7w3xmwt3u2980m552x7r9ekynnf9vs35sw6jehgsj28gps",
   "vm": "wasm",
   "native_feature": "initia-usernames",
   "core_logic_path": "contracts/staking/src/contract.rs",
   "native_feature_frontend_path": "frontend/src/components/Username.tsx",
-  "demo_video_url": "https://youtu.be/TODO"
+  "demo_video_url": "https://youtu.be/h4AxcTZKT34?si=aGe6ZX41UtZrYCI2"
 }
